@@ -138,8 +138,8 @@ def render_readme(packs: list[dict], generated: str, sample: list[dict]) -> str:
     lines.append("# TachiyomiX 模型包插件目录")
     lines.append("")
     lines.append(
-        "TachiyomiX「图像增强」的全部**外置模型包插件**清单：每个包的标识、版本、体积、"
-        "仓库地址与 APK 下载地址。宿主不内置任何模型，装一个显示一个、卸载即消失。",
+        "TachiyomiX「图像增强」的全部**外置模型包插件**目录：每个插件的**名称、地址、版本**"
+        "（另有包名、体积、sha256 与机器可读索引）。宿主不内置任何模型：装一个显示一个、卸载即消失。",
     )
     lines.append("")
     lines.append(f"> 数据由 [`generate.py`](./generate.py) 直接读 GitHub API 生成，最后更新：`{generated}`（UTC）。")
@@ -153,19 +153,24 @@ def render_readme(packs: list[dict], generated: str, sample: list[dict]) -> str:
     lines.append("> ⚠️ 若阅读器里「处理后端」选的是**骁龙 NPU**，列表只会显示声明支持 NPU 的模型；")
     lines.append("> 下表末列标注了各包是否支持 NPU，看不到某个包时先切回 **Vulkan**。")
     lines.append("")
-    lines.append("## 插件清单")
+    lines.append("## 插件清单（名称 / 地址 / 版本）")
     lines.append("")
-    lines.append("| 模型包 | ID | 包名 | 版本 | APK | 仓库 |")
-    lines.append("| --- | --- | --- | --- | --- | --- |")
+    lines.append("| 名称 | 版本 | 插件地址（仓库） | APK 下载地址 |")
+    lines.append("| --- | --- | --- | --- |")
     for p in packs:
-        ver = f"{p['versionName']} ({p['versionCode']})"
+        ver = f"{p['versionName']} (code {p['versionCode']})"
         if p["apk"]:
             apk = f"[{human_size(p['apk']['size'])}]({p['apk']['url']})"
         else:
-            apk = "（无 release）"
-        lines.append(
-            f"| {p['name']} | `{p['id']}` | `{p['package']}` | {ver} | {apk} | [{p['repo']}]({p['repoUrl']}) |",
-        )
+            apk = "（暂无 release）"
+        lines.append(f"| {p['name']} | {ver} | [{p['repo']}]({p['repoUrl']}) | {apk} |")
+    lines.append("")
+    lines.append("## 标识信息")
+    lines.append("")
+    lines.append("| 名称 | 插件 ID | 包名（packageName） | versionCode |")
+    lines.append("| --- | --- | --- | --- |")
+    for p in packs:
+        lines.append(f"| {p['name']} | `{p['id']}` | `{p['package']}` | {p['versionCode']} |")
     lines.append("")
     lines.append("## 每个包含的模型")
     lines.append("")

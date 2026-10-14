@@ -1,8 +1,8 @@
 # TachiyomiX 模型包插件目录
 
-TachiyomiX「图像增强」的全部**外置模型包插件**清单：每个包的标识、版本、体积、仓库地址与 APK 下载地址。宿主不内置任何模型，装一个显示一个、卸载即消失。
+TachiyomiX「图像增强」的全部**外置模型包插件**目录：每个插件的**名称、地址、版本**（另有包名、体积、sha256 与机器可读索引）。宿主不内置任何模型：装一个显示一个、卸载即消失。
 
-> 数据由 [`generate.py`](./generate.py) 直接读 GitHub API 生成，最后更新：`2026-10-14 07:30`（UTC）。
+> 数据由 [`generate.py`](./generate.py) 直接读 GitHub API 生成，最后更新：`2026-10-14 14:04`（UTC）。
 
 ## 安装方式
 
@@ -13,22 +13,39 @@ TachiyomiX「图像增强」的全部**外置模型包插件**清单：每个包
 > ⚠️ 若阅读器里「处理后端」选的是**骁龙 NPU**，列表只会显示声明支持 NPU 的模型；
 > 下表末列标注了各包是否支持 NPU，看不到某个包时先切回 **Vulkan**。
 
-## 插件清单
+## 插件清单（名称 / 地址 / 版本）
 
-| 模型包 | ID | 包名 | 版本 | APK | 仓库 |
-| --- | --- | --- | --- | --- | --- |
-| ACNE 模型 | `acnet` | `com.tachiyomix.modelpack.acnet` | 1.3 (6) | [40 KB](https://github.com/zhzipu/TachiyomiX-ModelPack-acnet/releases/download/v1.3/TachiyomiX-modelpack-acnet-release.apk) | [TachiyomiX-ModelPack-acnet](https://github.com/zhzipu/TachiyomiX-ModelPack-acnet) |
-| Anime4K 模型 | `anime4k` | `com.tachiyomix.modelpack.anime4k` | 1.3 (6) | [40 KB](https://github.com/zhzipu/TachiyomiX-ModelPack-anime4k/releases/download/v1.3/TachiyomiX-modelpack-anime4k-release.apk) | [TachiyomiX-ModelPack-anime4k](https://github.com/zhzipu/TachiyomiX-ModelPack-anime4k) |
-| Omni Small 模型 | `omni-small` | `com.tachiyomix.modelpack.omnismall` | 1.4 (7) | [1.47 MB](https://github.com/zhzipu/TachiyomiX-ModelPack-omni-small/releases/download/v1.4/TachiyomiX-modelpack-omni-small-release.apk) | [TachiyomiX-ModelPack-omni-small](https://github.com/zhzipu/TachiyomiX-ModelPack-omni-small) |
-| Real-CUGAN 模型 | `realcugan` | `com.tachiyomix.modelpack.realcugan` | 1.3 (6) | [25.74 MB](https://github.com/zhzipu/TachiyomiX-ModelPack-realcugan/releases/download/v1.3/TachiyomiX-modelpack-realcugan-release.apk) | [TachiyomiX-ModelPack-realcugan](https://github.com/zhzipu/TachiyomiX-ModelPack-realcugan) |
-| Real-CUGAN Nose 模型 | `realcugan-nose` | `com.tachiyomix.modelpack.realcugannose` | 1.3 (6) | [2.27 MB](https://github.com/zhzipu/TachiyomiX-ModelPack-realcugan-nose/releases/download/v1.3/TachiyomiX-modelpack-realcugan-nose-release.apk) | [TachiyomiX-ModelPack-realcugan-nose](https://github.com/zhzipu/TachiyomiX-ModelPack-realcugan-nose) |
-| Real-CUGAN Pro 模型 | `realcugan-pro` | `com.tachiyomix.modelpack.realcuganpro` | 1.3 (6) | [13.74 MB](https://github.com/zhzipu/TachiyomiX-ModelPack-realcugan-pro/releases/download/v1.3/TachiyomiX-modelpack-realcugan-pro-release.apk) | [TachiyomiX-ModelPack-realcugan-pro](https://github.com/zhzipu/TachiyomiX-ModelPack-realcugan-pro) |
-| Real-ESRGAN 模型 | `realesrgan` | `com.tachiyomix.modelpack.realesrgan` | 1.3 (6) | [13.44 MB](https://github.com/zhzipu/TachiyomiX-ModelPack-realesrgan/releases/download/v1.3/TachiyomiX-modelpack-realesrgan-release.apk) | [TachiyomiX-ModelPack-realesrgan](https://github.com/zhzipu/TachiyomiX-ModelPack-realesrgan) |
-| SPAN NomosUni 模型 | `span-nomosuni` | `com.tachiyomix.modelpack.spannomosuni` | 1.3 (6) | [1.47 MB](https://github.com/zhzipu/TachiyomiX-ModelPack-span-nomosuni/releases/download/v1.3/TachiyomiX-modelpack-span-nomosuni-release.apk) | [TachiyomiX-ModelPack-span-nomosuni](https://github.com/zhzipu/TachiyomiX-ModelPack-span-nomosuni) |
-| NomosUni Span 4x 模型 | `span-nomosuni-4x` | `com.tachiyomix.modelpack.spannomosuni4x` | 1.4 (7) | [1.50 MB](https://github.com/zhzipu/TachiyomiX-ModelPack-span-nomosuni-4x/releases/download/v1.4/TachiyomiX-modelpack-span-nomosuni-4x-release.apk) | [TachiyomiX-ModelPack-span-nomosuni-4x](https://github.com/zhzipu/TachiyomiX-ModelPack-span-nomosuni-4x) |
-| sudo UltraCompact 模型 | `sudo-ultracompact` | `com.tachiyomix.modelpack.sudoultracompact` | 1.3 (6) | [1.09 MB](https://github.com/zhzipu/TachiyomiX-ModelPack-sudo-ultracompact/releases/download/v1.3/TachiyomiX-modelpack-sudo-ultracompact-release.apk) | [TachiyomiX-ModelPack-sudo-ultracompact](https://github.com/zhzipu/TachiyomiX-ModelPack-sudo-ultracompact) |
-| waifu2x 基础模型 | `waifu2x` | `com.tachiyomix.modelpack.waifu2x` | 1.3 (6) | [22.10 MB](https://github.com/zhzipu/TachiyomiX-ModelPack-waifu2x/releases/download/v1.3/TachiyomiX-modelpack-waifu2x-release.apk) | [TachiyomiX-ModelPack-waifu2x](https://github.com/zhzipu/TachiyomiX-ModelPack-waifu2x) |
-| waifu2x Upconv7 模型 | `waifu2x-upconv7` | `com.tachiyomix.modelpack.waifu2xupconv7` | 1.3 (6) | [4.92 MB](https://github.com/zhzipu/TachiyomiX-ModelPack-waifu2x-upconv7/releases/download/v1.3/TachiyomiX-modelpack-waifu2x-upconv7-release.apk) | [TachiyomiX-ModelPack-waifu2x-upconv7](https://github.com/zhzipu/TachiyomiX-ModelPack-waifu2x-upconv7) |
+| 名称 | 版本 | 插件地址（仓库） | APK 下载地址 |
+| --- | --- | --- | --- |
+| ACNE 模型 | 1.3 (code 6) | [TachiyomiX-ModelPack-acnet](https://github.com/zhzipu/TachiyomiX-ModelPack-acnet) | [40 KB](https://github.com/zhzipu/TachiyomiX-ModelPack-acnet/releases/download/v1.3/TachiyomiX-modelpack-acnet-release.apk) |
+| Anime4K 模型 | 1.3 (code 6) | [TachiyomiX-ModelPack-anime4k](https://github.com/zhzipu/TachiyomiX-ModelPack-anime4k) | [40 KB](https://github.com/zhzipu/TachiyomiX-ModelPack-anime4k/releases/download/v1.3/TachiyomiX-modelpack-anime4k-release.apk) |
+| Omni Small 模型 | 1.4 (code 7) | [TachiyomiX-ModelPack-omni-small](https://github.com/zhzipu/TachiyomiX-ModelPack-omni-small) | [1.47 MB](https://github.com/zhzipu/TachiyomiX-ModelPack-omni-small/releases/download/v1.4/TachiyomiX-modelpack-omni-small-release.apk) |
+| Real-CUGAN 模型 | 1.3 (code 6) | [TachiyomiX-ModelPack-realcugan](https://github.com/zhzipu/TachiyomiX-ModelPack-realcugan) | [25.74 MB](https://github.com/zhzipu/TachiyomiX-ModelPack-realcugan/releases/download/v1.3/TachiyomiX-modelpack-realcugan-release.apk) |
+| Real-CUGAN Nose 模型 | 1.3 (code 6) | [TachiyomiX-ModelPack-realcugan-nose](https://github.com/zhzipu/TachiyomiX-ModelPack-realcugan-nose) | [2.27 MB](https://github.com/zhzipu/TachiyomiX-ModelPack-realcugan-nose/releases/download/v1.3/TachiyomiX-modelpack-realcugan-nose-release.apk) |
+| Real-CUGAN Pro 模型 | 1.3 (code 6) | [TachiyomiX-ModelPack-realcugan-pro](https://github.com/zhzipu/TachiyomiX-ModelPack-realcugan-pro) | [13.74 MB](https://github.com/zhzipu/TachiyomiX-ModelPack-realcugan-pro/releases/download/v1.3/TachiyomiX-modelpack-realcugan-pro-release.apk) |
+| Real-ESRGAN 模型 | 1.3 (code 6) | [TachiyomiX-ModelPack-realesrgan](https://github.com/zhzipu/TachiyomiX-ModelPack-realesrgan) | [13.44 MB](https://github.com/zhzipu/TachiyomiX-ModelPack-realesrgan/releases/download/v1.3/TachiyomiX-modelpack-realesrgan-release.apk) |
+| SPAN NomosUni 模型 | 1.3 (code 6) | [TachiyomiX-ModelPack-span-nomosuni](https://github.com/zhzipu/TachiyomiX-ModelPack-span-nomosuni) | [1.47 MB](https://github.com/zhzipu/TachiyomiX-ModelPack-span-nomosuni/releases/download/v1.3/TachiyomiX-modelpack-span-nomosuni-release.apk) |
+| NomosUni Span 4x 模型 | 1.4 (code 7) | [TachiyomiX-ModelPack-span-nomosuni-4x](https://github.com/zhzipu/TachiyomiX-ModelPack-span-nomosuni-4x) | [1.50 MB](https://github.com/zhzipu/TachiyomiX-ModelPack-span-nomosuni-4x/releases/download/v1.4/TachiyomiX-modelpack-span-nomosuni-4x-release.apk) |
+| sudo UltraCompact 模型 | 1.3 (code 6) | [TachiyomiX-ModelPack-sudo-ultracompact](https://github.com/zhzipu/TachiyomiX-ModelPack-sudo-ultracompact) | [1.09 MB](https://github.com/zhzipu/TachiyomiX-ModelPack-sudo-ultracompact/releases/download/v1.3/TachiyomiX-modelpack-sudo-ultracompact-release.apk) |
+| waifu2x 基础模型 | 1.3 (code 6) | [TachiyomiX-ModelPack-waifu2x](https://github.com/zhzipu/TachiyomiX-ModelPack-waifu2x) | [22.10 MB](https://github.com/zhzipu/TachiyomiX-ModelPack-waifu2x/releases/download/v1.3/TachiyomiX-modelpack-waifu2x-release.apk) |
+| waifu2x Upconv7 模型 | 1.3 (code 6) | [TachiyomiX-ModelPack-waifu2x-upconv7](https://github.com/zhzipu/TachiyomiX-ModelPack-waifu2x-upconv7) | [4.92 MB](https://github.com/zhzipu/TachiyomiX-ModelPack-waifu2x-upconv7/releases/download/v1.3/TachiyomiX-modelpack-waifu2x-upconv7-release.apk) |
+
+## 标识信息
+
+| 名称 | 插件 ID | 包名（packageName） | versionCode |
+| --- | --- | --- | --- |
+| ACNE 模型 | `acnet` | `com.tachiyomix.modelpack.acnet` | 6 |
+| Anime4K 模型 | `anime4k` | `com.tachiyomix.modelpack.anime4k` | 6 |
+| Omni Small 模型 | `omni-small` | `com.tachiyomix.modelpack.omnismall` | 7 |
+| Real-CUGAN 模型 | `realcugan` | `com.tachiyomix.modelpack.realcugan` | 6 |
+| Real-CUGAN Nose 模型 | `realcugan-nose` | `com.tachiyomix.modelpack.realcugannose` | 6 |
+| Real-CUGAN Pro 模型 | `realcugan-pro` | `com.tachiyomix.modelpack.realcuganpro` | 6 |
+| Real-ESRGAN 模型 | `realesrgan` | `com.tachiyomix.modelpack.realesrgan` | 6 |
+| SPAN NomosUni 模型 | `span-nomosuni` | `com.tachiyomix.modelpack.spannomosuni` | 6 |
+| NomosUni Span 4x 模型 | `span-nomosuni-4x` | `com.tachiyomix.modelpack.spannomosuni4x` | 7 |
+| sudo UltraCompact 模型 | `sudo-ultracompact` | `com.tachiyomix.modelpack.sudoultracompact` | 6 |
+| waifu2x 基础模型 | `waifu2x` | `com.tachiyomix.modelpack.waifu2x` | 6 |
+| waifu2x Upconv7 模型 | `waifu2x-upconv7` | `com.tachiyomix.modelpack.waifu2xupconv7` | 6 |
 
 ## 每个包含的模型
 
