@@ -1,0 +1,437 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-14 07:30",
+  "count": 12,
+  "packs": [
+    {
+      "repo": "TachiyomiX-ModelPack-acnet",
+      "repoUrl": "https://github.com/zhzipu/TachiyomiX-ModelPack-acnet",
+      "description": "ACNet（Anime4KCPP）1 通道亮度 2x 超分，自带原生推理库",
+      "updatedAt": "2026-09-27T05:29:25Z",
+      "package": "com.tachiyomix.modelpack.acnet",
+      "id": "acnet",
+      "name": "ACNE 模型",
+      "versionCode": 6,
+      "versionName": "1.3",
+      "apk": {
+        "name": "TachiyomiX-modelpack-acnet-release.apk",
+        "size": 41262,
+        "sha256": "c60e0936f4e22bf939b5feb590944920158e57e6f57d069e023c7192ee304ab0",
+        "url": "https://github.com/zhzipu/TachiyomiX-ModelPack-acnet/releases/download/v1.3/TachiyomiX-modelpack-acnet-release.apk",
+        "tag": "v1.3",
+        "published": "2026-09-27T05:29:25Z",
+        "release": "https://github.com/zhzipu/TachiyomiX-ModelPack-acnet/releases/tag/v1.3"
+      },
+      "models": [
+        {
+          "key": "acnet",
+          "name": "ACNet f8b4 x2",
+          "engine": "acnet",
+          "scales": [
+            2
+          ],
+          "denoiseLevels": [],
+          "supportsNpu": false,
+          "npuScales": []
+        }
+      ]
+    },
+    {
+      "repo": "TachiyomiX-ModelPack-anime4k",
+      "repoUrl": "https://github.com/zhzipu/TachiyomiX-ModelPack-anime4k",
+      "description": "Anime4K 亮度边缘定向 2x 超分，自带原生推理库",
+      "updatedAt": "2026-09-27T05:29:29Z",
+      "package": "com.tachiyomix.modelpack.anime4k",
+      "id": "anime4k",
+      "name": "Anime4K 模型",
+      "versionCode": 6,
+      "versionName": "1.3",
+      "apk": {
+        "name": "TachiyomiX-modelpack-anime4k-release.apk",
+        "size": 41258,
+        "sha256": "2c269c17d1cd680818d776fce84c4e6656b4fcff831fc61119c2c3062b63d32f",
+        "url": "https://github.com/zhzipu/TachiyomiX-ModelPack-anime4k/releases/download/v1.3/TachiyomiX-modelpack-anime4k-release.apk",
+        "tag": "v1.3",
+        "published": "2026-09-27T05:29:29Z",
+        "release": "https://github.com/zhzipu/TachiyomiX-ModelPack-anime4k/releases/tag/v1.3"
+      },
+      "models": [
+        {
+          "key": "anime4k",
+          "name": "Anime4K Original x2",
+          "engine": "anime4k",
+          "scales": [
+            2
+          ],
+          "denoiseLevels": [],
+          "supportsNpu": false,
+          "npuScales": []
+        }
+      ]
+    },
+    {
+      "repo": "TachiyomiX-ModelPack-omni-small",
+      "repoUrl": "https://github.com/zhzipu/TachiyomiX-ModelPack-omni-small",
+      "description": "TachiyomiX 图像增强模型包插件：Omni Small（SPAN 2x，权重 2xHFA2kSPAN）",
+      "updatedAt": "2026-10-14T06:56:39Z",
+      "package": "com.tachiyomix.modelpack.omnismall",
+      "id": "omni-small",
+      "name": "Omni Small 模型",
+      "versionCode": 7,
+      "versionName": "1.4",
+      "apk": {
+        "name": "TachiyomiX-modelpack-omni-small-release.apk",
+        "size": 1541684,
+        "sha256": "7ca1e305ce54d940fabefb84eca14a93382a0bce486aab848e95011d1ba27e54",
+        "url": "https://github.com/zhzipu/TachiyomiX-ModelPack-omni-small/releases/download/v1.4/TachiyomiX-modelpack-omni-small-release.apk",
+        "tag": "v1.4",
+        "published": "2026-10-14T06:56:39Z",
+        "release": "https://github.com/zhzipu/TachiyomiX-ModelPack-omni-small/releases/tag/v1.4"
+      },
+      "models": [
+        {
+          "key": "omni-small",
+          "name": "Omni Small (HFA2k SPAN) x2",
+          "engine": "hfa2k-span",
+          "scales": [
+            2
+          ],
+          "denoiseLevels": [],
+          "supportsNpu": false,
+          "npuScales": []
+        }
+      ]
+    },
+    {
+      "repo": "TachiyomiX-ModelPack-realcugan",
+      "repoUrl": "https://github.com/zhzipu/TachiyomiX-ModelPack-realcugan",
+      "description": "Real-CUGAN 动漫超分模型（2x/3x/4x，多档降噪）",
+      "updatedAt": "2026-09-27T05:28:29Z",
+      "package": "com.tachiyomix.modelpack.realcugan",
+      "id": "realcugan",
+      "name": "Real-CUGAN 模型",
+      "versionCode": 6,
+      "versionName": "1.3",
+      "apk": {
+        "name": "TachiyomiX-modelpack-realcugan-release.apk",
+        "size": 26987929,
+        "sha256": "4f72fcc9642c8d319e8873c4fbedc0fb4e6d7b00f66579cfdc2e91bdcc4b8db8",
+        "url": "https://github.com/zhzipu/TachiyomiX-ModelPack-realcugan/releases/download/v1.3/TachiyomiX-modelpack-realcugan-release.apk",
+        "tag": "v1.3",
+        "published": "2026-09-27T05:28:30Z",
+        "release": "https://github.com/zhzipu/TachiyomiX-ModelPack-realcugan/releases/tag/v1.3"
+      },
+      "models": [
+        {
+          "key": "realcugan-se",
+          "name": "Real-CUGAN SE",
+          "engine": "realcugan-se",
+          "scales": [
+            2,
+            3,
+            4
+          ],
+          "denoiseLevels": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "supportsNpu": true,
+          "npuScales": [
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "repo": "TachiyomiX-ModelPack-realcugan-nose",
+      "repoUrl": "https://github.com/zhzipu/TachiyomiX-ModelPack-realcugan-nose",
+      "description": "Real-CUGAN Nose（无降噪）模型",
+      "updatedAt": "2026-09-27T05:28:56Z",
+      "package": "com.tachiyomix.modelpack.realcugannose",
+      "id": "realcugan-nose",
+      "name": "Real-CUGAN Nose 模型",
+      "versionCode": 6,
+      "versionName": "1.3",
+      "apk": {
+        "name": "TachiyomiX-modelpack-realcugan-nose-release.apk",
+        "size": 2376633,
+        "sha256": "29d0a7b7d030baa423ea773aee124e0f811ff0e70c8d78b24e5e81f6e9ae204c",
+        "url": "https://github.com/zhzipu/TachiyomiX-ModelPack-realcugan-nose/releases/download/v1.3/TachiyomiX-modelpack-realcugan-nose-release.apk",
+        "tag": "v1.3",
+        "published": "2026-09-27T05:28:56Z",
+        "release": "https://github.com/zhzipu/TachiyomiX-ModelPack-realcugan-nose/releases/tag/v1.3"
+      },
+      "models": [
+        {
+          "key": "realcugan-nose",
+          "name": "Real-CUGAN Nose",
+          "engine": "realcugan-nose",
+          "scales": [
+            2
+          ],
+          "denoiseLevels": [],
+          "supportsNpu": false,
+          "npuScales": []
+        }
+      ]
+    },
+    {
+      "repo": "TachiyomiX-ModelPack-realcugan-pro",
+      "repoUrl": "https://github.com/zhzipu/TachiyomiX-ModelPack-realcugan-pro",
+      "description": "Real-CUGAN Pro 模型",
+      "updatedAt": "2026-09-27T05:28:43Z",
+      "package": "com.tachiyomix.modelpack.realcuganpro",
+      "id": "realcugan-pro",
+      "name": "Real-CUGAN Pro 模型",
+      "versionCode": 6,
+      "versionName": "1.3",
+      "apk": {
+        "name": "TachiyomiX-modelpack-realcugan-pro-release.apk",
+        "size": 14402855,
+        "sha256": "012dc029bcf3adaf5c3063536a37693748d4786cff2997d6e07bc1b7fcd47986",
+        "url": "https://github.com/zhzipu/TachiyomiX-ModelPack-realcugan-pro/releases/download/v1.3/TachiyomiX-modelpack-realcugan-pro-release.apk",
+        "tag": "v1.3",
+        "published": "2026-09-27T05:28:44Z",
+        "release": "https://github.com/zhzipu/TachiyomiX-ModelPack-realcugan-pro/releases/tag/v1.3"
+      },
+      "models": [
+        {
+          "key": "realcugan-pro",
+          "name": "Real-CUGAN Pro",
+          "engine": "realcugan-pro",
+          "scales": [
+            2,
+            3
+          ],
+          "denoiseLevels": [
+            0,
+            3,
+            4
+          ],
+          "supportsNpu": true,
+          "npuScales": [
+            2,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "repo": "TachiyomiX-ModelPack-realesrgan",
+      "repoUrl": "https://github.com/zhzipu/TachiyomiX-ModelPack-realesrgan",
+      "description": "Real-ESRGAN 超分模型（anime / 通用）",
+      "updatedAt": "2026-09-27T05:29:02Z",
+      "package": "com.tachiyomix.modelpack.realesrgan",
+      "id": "realesrgan",
+      "name": "Real-ESRGAN 模型",
+      "versionCode": 6,
+      "versionName": "1.3",
+      "apk": {
+        "name": "TachiyomiX-modelpack-realesrgan-release.apk",
+        "size": 14092275,
+        "sha256": "08b69ed1ee03d5f905aa99a2179e0ca4fac13d5139a8ceeacfebdb34f79960be",
+        "url": "https://github.com/zhzipu/TachiyomiX-ModelPack-realesrgan/releases/download/v1.3/TachiyomiX-modelpack-realesrgan-release.apk",
+        "tag": "v1.3",
+        "published": "2026-09-27T05:29:02Z",
+        "release": "https://github.com/zhzipu/TachiyomiX-ModelPack-realesrgan/releases/tag/v1.3"
+      },
+      "models": [
+        {
+          "key": "realesrgan",
+          "name": "Real-ESRGAN",
+          "engine": "realesrgan",
+          "scales": [
+            2,
+            3,
+            4
+          ],
+          "denoiseLevels": [],
+          "supportsNpu": true,
+          "npuScales": [
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "repo": "TachiyomiX-ModelPack-span-nomosuni",
+      "repoUrl": "https://github.com/zhzipu/TachiyomiX-ModelPack-span-nomosuni",
+      "description": "SPAN NomosUni 超分模型",
+      "updatedAt": "2026-09-27T05:29:14Z",
+      "package": "com.tachiyomix.modelpack.spannomosuni",
+      "id": "span-nomosuni",
+      "name": "SPAN NomosUni 模型",
+      "versionCode": 6,
+      "versionName": "1.3",
+      "apk": {
+        "name": "TachiyomiX-modelpack-span-nomosuni-release.apk",
+        "size": 1539343,
+        "sha256": "5806f4b2a48a1faef52a0af514f904a041cb72d150cf38f9752b9d1ca1fdadec",
+        "url": "https://github.com/zhzipu/TachiyomiX-ModelPack-span-nomosuni/releases/download/v1.3/TachiyomiX-modelpack-span-nomosuni-release.apk",
+        "tag": "v1.3",
+        "published": "2026-09-27T05:29:15Z",
+        "release": "https://github.com/zhzipu/TachiyomiX-ModelPack-span-nomosuni/releases/tag/v1.3"
+      },
+      "models": [
+        {
+          "key": "span-nomosuni",
+          "name": "SPAN NomosUni Photo",
+          "engine": "span-nomosuni",
+          "scales": [
+            2
+          ],
+          "denoiseLevels": [],
+          "supportsNpu": true,
+          "npuScales": [
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "repo": "TachiyomiX-ModelPack-span-nomosuni-4x",
+      "repoUrl": "https://github.com/zhzipu/TachiyomiX-ModelPack-span-nomosuni-4x",
+      "description": "TachiyomiX 图像增强模型包插件：NomosUni Span 4x（SPAN 4x，权重 4xNomosUni_span_multijpg）",
+      "updatedAt": "2026-10-14T06:56:46Z",
+      "package": "com.tachiyomix.modelpack.spannomosuni4x",
+      "id": "span-nomosuni-4x",
+      "name": "NomosUni Span 4x 模型",
+      "versionCode": 7,
+      "versionName": "1.4",
+      "apk": {
+        "name": "TachiyomiX-modelpack-span-nomosuni-4x-release.apk",
+        "size": 1568860,
+        "sha256": "55448cc8357d7751fa36bfc5870a4141ccb1ca1ca57322cc1e92dc06d4a88a87",
+        "url": "https://github.com/zhzipu/TachiyomiX-ModelPack-span-nomosuni-4x/releases/download/v1.4/TachiyomiX-modelpack-span-nomosuni-4x-release.apk",
+        "tag": "v1.4",
+        "published": "2026-10-14T06:56:46Z",
+        "release": "https://github.com/zhzipu/TachiyomiX-ModelPack-span-nomosuni-4x/releases/tag/v1.4"
+      },
+      "models": [
+        {
+          "key": "span-nomosuni-4x",
+          "name": "NomosUni Span 4x",
+          "engine": "span-nomosuni-4x",
+          "scales": [
+            4
+          ],
+          "denoiseLevels": [],
+          "supportsNpu": false,
+          "npuScales": []
+        }
+      ]
+    },
+    {
+      "repo": "TachiyomiX-ModelPack-sudo-ultracompact",
+      "repoUrl": "https://github.com/zhzipu/TachiyomiX-ModelPack-sudo-ultracompact",
+      "description": "sudo UltraCompact 超分模型",
+      "updatedAt": "2026-09-27T05:29:19Z",
+      "package": "com.tachiyomix.modelpack.sudoultracompact",
+      "id": "sudo-ultracompact",
+      "name": "sudo UltraCompact 模型",
+      "versionCode": 6,
+      "versionName": "1.3",
+      "apk": {
+        "name": "TachiyomiX-modelpack-sudo-ultracompact-release.apk",
+        "size": 1142969,
+        "sha256": "9b11b56c75af2e9914621fcde692206051d6df5c36b426a5509771c880c309d9",
+        "url": "https://github.com/zhzipu/TachiyomiX-ModelPack-sudo-ultracompact/releases/download/v1.3/TachiyomiX-modelpack-sudo-ultracompact-release.apk",
+        "tag": "v1.3",
+        "published": "2026-09-27T05:29:19Z",
+        "release": "https://github.com/zhzipu/TachiyomiX-ModelPack-sudo-ultracompact/releases/tag/v1.3"
+      },
+      "models": [
+        {
+          "key": "sudo-ultracompact",
+          "name": "sudo UltraCompact",
+          "engine": "sudo-ultracompact",
+          "scales": [
+            2
+          ],
+          "denoiseLevels": [],
+          "supportsNpu": false,
+          "npuScales": []
+        }
+      ]
+    },
+    {
+      "repo": "TachiyomiX-ModelPack-waifu2x",
+      "repoUrl": "https://github.com/zhzipu/TachiyomiX-ModelPack-waifu2x",
+      "description": "Waifu2x 基础超分模型（2x 放大，0–3 级降噪）",
+      "updatedAt": "2026-09-27T05:27:55Z",
+      "package": "com.tachiyomix.modelpack.waifu2x",
+      "id": "waifu2x",
+      "name": "waifu2x 基础模型",
+      "versionCode": 6,
+      "versionName": "1.3",
+      "apk": {
+        "name": "TachiyomiX-modelpack-waifu2x-release.apk",
+        "size": 23173111,
+        "sha256": "af86dc66b69117c2d21d443a76e68aefdb102d7e5dcda8b340f11c71c08d1622",
+        "url": "https://github.com/zhzipu/TachiyomiX-ModelPack-waifu2x/releases/download/v1.3/TachiyomiX-modelpack-waifu2x-release.apk",
+        "tag": "v1.3",
+        "published": "2026-09-27T05:27:55Z",
+        "release": "https://github.com/zhzipu/TachiyomiX-ModelPack-waifu2x/releases/tag/v1.3"
+      },
+      "models": [
+        {
+          "key": "waifu2x",
+          "name": "Waifu2x",
+          "engine": "waifu2x",
+          "scales": [
+            2
+          ],
+          "denoiseLevels": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "supportsNpu": false,
+          "npuScales": []
+        }
+      ]
+    },
+    {
+      "repo": "TachiyomiX-ModelPack-waifu2x-upconv7",
+      "repoUrl": "https://github.com/zhzipu/TachiyomiX-ModelPack-waifu2x-upconv7",
+      "description": "Waifu2x Upconv7 模型",
+      "updatedAt": "2026-09-27T05:28:20Z",
+      "package": "com.tachiyomix.modelpack.waifu2xupconv7",
+      "id": "waifu2x-upconv7",
+      "name": "waifu2x Upconv7 模型",
+      "versionCode": 6,
+      "versionName": "1.3",
+      "apk": {
+        "name": "TachiyomiX-modelpack-waifu2x-upconv7-release.apk",
+        "size": 5161283,
+        "sha256": "8ca623ca3cc6ce4ccf5906c9f2e0d12e49c4f564311d709aaabbd10f526a9b56",
+        "url": "https://github.com/zhzipu/TachiyomiX-ModelPack-waifu2x-upconv7/releases/download/v1.3/TachiyomiX-modelpack-waifu2x-upconv7-release.apk",
+        "tag": "v1.3",
+        "published": "2026-09-27T05:28:20Z",
+        "release": "https://github.com/zhzipu/TachiyomiX-ModelPack-waifu2x-upconv7/releases/tag/v1.3"
+      },
+      "models": [
+        {
+          "key": "waifu2x-upconv7",
+          "name": "Waifu2x (Fast)",
+          "engine": "waifu2x-upconv7",
+          "scales": [
+            2
+          ],
+          "denoiseLevels": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "supportsNpu": false,
+          "npuScales": []
+        }
+      ]
+    }
+  ]
+}
