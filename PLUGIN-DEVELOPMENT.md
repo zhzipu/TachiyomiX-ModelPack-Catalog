@@ -57,7 +57,7 @@ TachiyomiX-ModelPack-omni-small/
 1. 把权重转成 ncnn 的 `<stem>.param` + `<stem>.bin`（见 [§6](#6-权重转换流水线pytorch--ncnn)）；
 2. 写 `assets/modelpack.json`，`engine` 填宿主已实现的算法值（见 [§3](#3-引擎engine约定模型文件该叫什么名字)）；
 3. 用 [§7](#7-工程模板与构建) 的工程模板打包（`./gradlew assembleRelease`）；
-4. 装机后在 `设置 → 高级 → 模型包` 确认宿主认到了它（版本号要对）；
+4. 装机后在 `设置 → 高级 → 模型包` 确认宿主认到了它（版本号要对）；发布到 GitHub Release 后，**这一页会直接列出它并支持一键安装/更新**（下面 [§8](#8-发布到-github-并登记进本目录)）；
 5. 阅读器 →「增强设置」→ 模型一栏选中它，出图验收（见 [§9](#9-验收清单)）。
 
 ---
@@ -139,6 +139,9 @@ EnhancementEngines.engineFor(model)
 
 > **重要**：阅读器里那条 chip 显示 `models[].name`；`设置 → 高级 → 模型包` 列表显示的是顶层 `name` + 包名。
 > 用户按「插件名」找不到模型时，通常就是这两个名字不一致（例如插件叫 Omni Small，模型名是 `Omni Small (HFA2k SPAN) x2`）。
+>
+> 另外：**升级插件必须递增 `versionCode`** —— 宿主既用它判断解压缓存是否失效（见 1.2），
+> 也用它和目录索引里的 `code` 比较来判断「有没有新版本」（见 [§8](#8-发布到-github-并登记进本目录)）。
 
 ### 2.3 `styles[]`（可选，Real-ESRGAN 这类多风格模型用）
 
@@ -488,6 +491,23 @@ git add -A; git commit -m "Update catalog"; git push
 生成器会读每个仓库的 `build.gradle.kts`（版本/包名/描述符 id+name）、`assets/modelpack.json`（模型清单/engine/倍率/NPU）
 和 releases（tag、APK 名/体积/sha256/下载地址），写入 `README.md` + `index.json` + `index.min.json`。
 
+### 8.1 上架后 App 内就能装（这一段决定索引字段不能乱改）
+
+TachiyomiX 的 `设置 → 高级 → 模型包` 会**直接读本目录的 `index.min.json`**，把每个插件的
+`name` / `version` / `code` / `apk` / `size` / `sha256` 都用起来：
+
+| 字段 | App 用途 |
+| --- | --- |
+| `name` | 列表标题 |
+| `version` / `code` | 展示版本；`code` 与已安装包的 versionCode 比较 → 判断「可更新」（`code` 更大才算新） |
+| `apk` | 下载地址（走「模型插件下载」代理作用域） |
+| `size` | 列表里显示体积 |
+| `sha256` | 下载后校验，不一致直接删文件、不交给安装器 |
+| `id` | 与已安装模型包的 `tachiyomix.modelpack.id` 对应 → 判断「已安装 / 可安装」 |
+
+所以要改索引字段名时，**宿主和本目录必须一起改**；`sha256` 也别省（省了 App 就少一层校验）。
+App 侧还有两条代理作用域：`模型插件仓库`（读索引）与 `模型插件下载`（下 APK），默认都直连。
+
 ---
 
 ## 9. 验收清单
@@ -495,6 +515,7 @@ git add -A; git commit -m "Update catalog"; git push
 装机后逐条过一遍：
 
 - [ ] `设置 → 高级 → 模型包` 里能看到该包，**版本号是刚发的那个**（不是旧的 → 忘了升 `versionCode`）
+- [ ] **发布到目录仓库后**，同一页面里该插件显示为「可安装」（没装）或「可更新」（装了旧版），能一键下载安装
 - [ ] 阅读器 →「增强设置」→ 模型一栏出现该模型，**名字等于 `models[].name`**
 - [ ] 「处理后端」若是**骁龙 NPU**，`supportsNpu: false` 的模型会被过滤掉（这是预期行为）
 - [ ] 打开一页增强：能出图、**颜色不偏（红蓝不互换）**、输出尺寸 = 输入 × `scales`

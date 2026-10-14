@@ -18,6 +18,8 @@ import base64
 import json
 import os
 import re
+import shutil
+import subprocess
 import sys
 import urllib.error
 import urllib.request
@@ -77,7 +79,57 @@ def parse_gradle(text: str) -> dict:
     }
 
 
-def collect(repo: str) -> dict | None:
+def aapt2_path() -> str | None:
+    """从 ANDROID_HOME 的 build-tools 里挑一个 aapt2（用来读 APK 的真实版本号）。"""
+    sdk = os.environ.get("ANDROID_HOME") or os.environ.get("ANDROID_SDK_ROOT")
+    if not sdk:
+        return None
+    tools = Path(sdk) / "build-tools"
+    if not tools.is_dir():
+        return None
+    candidates = sorted(
+        (d / "aapt2.exe" for d in tools.iterdir() if (d / "aapt2.exe").is_file()),
+        key=lambda p: [int(x) if x.isdigit() else 0 for x in p.parent.name.split(".")],
+    )
+    return str(candidates[-1]) if candidates else None
+
+
+def apk_meta(path: Path) -> dict | None:
+    """读 APK 里的 package name / versionCode / versionName。"""
+    aapt2 = aapt2_path()
+    if not aapt2:
+        return None
+    try:
+        out = subprocess.run([aapt2, "dump", "badging", str(path)], capture_output=True, text=True, timeout=120)
+    except Exception as e:  # noqa: BLE001
+        print(f"      !! aapt2 执行失败：{e}", flush=True)
+        return None
+    m = re.search(r"package: name='([^']*)' versionCode='([^']*)' versionName='([^']*)'", out.stdout)
+    if not m:
+        return None
+    return {"pkg": m.group(1), "versionCode": int(m.group(2) or 0), "versionName": m.group(3)}
+
+
+def ensure_apk(cache_dir: Path, repo: str, asset: dict) -> Path | None:
+    """把 release 附件下到本地缓存（大小一致就复用），供 aapt2 解析。"""
+    cache_dir.mkdir(parents=True, exist_ok=True)
+    target = cache_dir / f"{repo}.apk"
+    if target.is_file() and target.stat().st_size == asset["size"]:
+        return target
+    try:
+        with OPENER.open(asset["url"], timeout=300) as resp, target.open("wb") as fh:
+            shutil.copyfileobj(resp, fh)
+    except Exception as e:  # noqa: BLE001
+        print(f"      !! 下载 {repo} 的 APK 失败：{e}", flush=True)
+        target.unlink(missing_ok=True)
+        return None
+    if target.stat().st_size != asset["size"]:
+        target.unlink(missing_ok=True)
+        return None
+    return target
+
+
+def collect(repo: str, cache_dir: Path) -> dict | None:
     try:
         meta = api(f"/repos/{OWNER}/{repo}")
         gradle = parse_gradle(api(f"/repos/{OWNER}/{repo}/contents/build.gradle.kts", raw=True))
@@ -101,16 +153,27 @@ def collect(repo: str) -> dict | None:
             "release": latest["html_url"],
         }
 
+    # ⚠️ 版本号必须取**实际发布的 APK**里的值：仓库源码经常已经升到 6，而 release 附件还是旧的 1，
+    # 只读源码会让 App 误判「可更新」，点下去装到的却是同一个包。
+    published = None
+    if apk:
+        cached = ensure_apk(cache_dir, repo, apk)
+        if cached:
+            published = apk_meta(cached)
+
     return {
         "repo": repo,
         "repoUrl": meta["html_url"],
         "description": meta.get("description"),
         "updatedAt": meta.get("pushed_at"),
-        "package": gradle["pkg"],
+        "package": (published or {}).get("pkg") or gradle["pkg"],
         "id": gradle["id"],
         "name": gradle["name"] or modelpack.get("name"),
-        "versionCode": gradle["versionCode"],
-        "versionName": gradle["versionName"],
+        # 对外展示/比较用发布包的版本；源码里的版本另存，便于发现「改了源码但没发版」
+        "versionCode": (published or {}).get("versionCode") or gradle["versionCode"],
+        "versionName": (published or {}).get("versionName") or gradle["versionName"],
+        "sourceVersionCode": gradle["versionCode"],
+        "sourceVersionName": gradle["versionName"],
         "apk": apk,
         "models": [
             {
@@ -171,6 +234,15 @@ def render_readme(packs: list[dict], generated: str, sample: list[dict]) -> str:
             apk = "（暂无 release）"
         lines.append(f"| {p['name']} | {ver} | [{p['repo']}]({p['repoUrl']}) | {apk} |")
     lines.append("")
+    stale = [p for p in packs if (p.get("sourceVersionCode") or 0) > (p.get("versionCode") or 0)]
+    if stale:
+        lines.append("> ⚠️ 下面这些仓库的**源码版本已经升上去了但还没发 Release**（App 与上表用的是实际发布包的版本）：")
+        for p in stale:
+            lines.append(
+                f"> - `{p['id']}`：发布 `{p['versionName']} (code {p['versionCode']})`"
+                f"，源码 `{p['sourceVersionName']} (code {p['sourceVersionCode']})`",
+            )
+        lines.append("")
     lines.append("## 标识信息")
     lines.append("")
     lines.append("| 名称 | 插件 ID | 包名（packageName） | versionCode |")
@@ -221,15 +293,19 @@ def main() -> int:
     ]
     print(f"      {len(repos)} 个：{', '.join(sorted(repos))}")
 
-    print("[2/4] 抓取每个包的元数据")
+    print("[2/4] 抓取每个包的元数据（含下载 release APK 读真实版本号，缓存在 ../apk-cache）")
+    cache_dir = outdir.parent / "apk-cache"
     packs: list[dict] = []
     for repo in sorted(repos):
-        pack = collect(repo)
+        pack = collect(repo, cache_dir)
         if pack:
             packs.append(pack)
+            flag = ""
+            if (pack.get("sourceVersionCode") or 0) > (pack.get("versionCode") or 0):
+                flag = f"  ⚠️源码已到 {pack['sourceVersionName']}({pack['sourceVersionCode']})"
             print(f"      {pack['id']:<20} {pack['versionName']} ({pack['versionCode']})  "
                   f"{human_size(pack['apk']['size'] if pack['apk'] else None)}  "
-                  f"{len(pack['models'])} 个模型")
+                  f"{len(pack['models'])} 个模型{flag}")
     packs.sort(key=lambda p: p["package"])
 
     print("[3/4] 写 index.json / index.min.json")

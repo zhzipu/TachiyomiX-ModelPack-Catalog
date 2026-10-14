@@ -2,7 +2,7 @@
 
 TachiyomiX「图像增强」的全部**外置模型包插件**目录：每个插件的**名称、地址、版本**（另有包名、体积、sha256 与机器可读索引）。宿主不内置任何模型：装一个显示一个、卸载即消失。
 
-> 数据由 [`generate.py`](./generate.py) 直接读 GitHub API 生成，最后更新：`2026-10-14 14:17`（UTC）。
+> 数据由 [`generate.py`](./generate.py) 直接读 GitHub API 生成，最后更新：`2026-10-14 15:49`（UTC）。
 
 > 📘 **想自己做一个模型包插件？** 看 **[模型插件开发文档 PLUGIN-DEVELOPMENT.md](./PLUGIN-DEVELOPMENT.md)**：描述符字段表、engine 约定与模型文件命名、BGR 通道坑、PyTorch→ncnn 转换流水线与实测坑表、自带原生库 ABI、工程模板、发布规范、验收清单。
 
